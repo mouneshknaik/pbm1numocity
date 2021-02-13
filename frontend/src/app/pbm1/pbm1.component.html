@@ -1,0 +1,8 @@
+
+<mat-form-field class="example-full-width">
+    <mat-label>Favorite Food List</mat-label>
+    <input matInput placeholder="Ex. Pizza,Pasta" [(ngModel)]="foodItems">
+</mat-form-field>
+<section>
+    <button mat-raised-button color="primary" (click)="validate()">Check If Too Much</button>
+</section>
