@@ -11,7 +11,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {FormsModule} from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,10 +31,13 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatDividerModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule,
+    MatTableModule,
+    MatIconModule,
   ],
-  exports:[MatTabsModule,BrowserAnimationsModule],
-  providers: [],
+  exports:[MatTabsModule,BrowserAnimationsModule,Pbm1Component],
+  providers: [Pbm1Component,MatSnackBar,HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

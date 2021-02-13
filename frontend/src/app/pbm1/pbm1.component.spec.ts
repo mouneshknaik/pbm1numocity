@@ -1,4 +1,6 @@
+import { Overlay } from '@angular/cdk/overlay';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Pbm1Component } from './pbm1.component';
 
@@ -8,7 +10,8 @@ describe('Pbm1Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Pbm1Component ]
+      declarations: [ Pbm1Component ],
+      providers: [MatSnackBar,Overlay]
     })
     .compileComponents();
   });
@@ -22,4 +25,5 @@ describe('Pbm1Component', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

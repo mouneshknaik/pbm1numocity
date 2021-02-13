@@ -1,1 +1,54 @@
-<p>pbm2 works!</p>
+<div *ngIf="!formFlag">
+    <button mat-raised-button color="primary" (click)="close();formData={}">Add</button>
+    <table mat-table [dataSource]="energyInfo" class="mat-elevation-z8">
+    
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="energyConsumption">
+          <th mat-header-cell *matHeaderCellDef> energyConsumption </th>
+          <td mat-cell *matCellDef="let element"> {{element.energyConsumption}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Devices">
+          <th mat-header-cell *matHeaderCellDef> Devices </th>
+          <td mat-cell *matCellDef="let element"> {{element.Devices}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="recordTime">
+          <th mat-header-cell *matHeaderCellDef> recordTime </th>
+          <td mat-cell *matCellDef="let element"> {{element.recordTime}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Edit">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element"><a href="javascript:void(0)" (click)="edit(element.id)">Edit</a> </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Delete">
+            <th mat-header-cell *matHeaderCellDef> 
+               Delete </th>
+            <td mat-cell *matCellDef="let element"><a href="javascript:void(0)" (click)="delete(element.id)">Delete</a></td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>
+
+  <div class="form" *ngIf="formFlag">
+    <mat-form-field >
+        <mat-label>Devices</mat-label>
+        <input matInput [(ngModel)]="formData['Devices']">
+    </mat-form-field>
+    <br>
+    <mat-form-field >
+        <mat-label>energyConsumption</mat-label>
+        <input matInput type="number" [(ngModel)]="formData['energyConsumption']">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+    <button mat-raised-button color="warn" (click)="close()">close</button>
+  </div>
