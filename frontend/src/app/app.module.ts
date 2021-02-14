@@ -36,7 +36,7 @@ import {MatTableModule} from '@angular/material/table';
     MatTableModule,
     MatIconModule,
   ],
-  exports:[MatTabsModule,BrowserAnimationsModule,Pbm1Component],
+  exports:[MatTabsModule,BrowserAnimationsModule,Pbm1Component,Pbm2Component,AppComponent],
   providers: [Pbm1Component,MatSnackBar,HttpClient],
   bootstrap: [AppComponent]
 })
